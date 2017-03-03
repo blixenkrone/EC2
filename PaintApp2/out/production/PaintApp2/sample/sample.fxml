@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.canvas.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <center>
+      <Canvas id="canvas" fx:id="canvas" height="351.0" onMouseClicked="#drawCanvas" onMouseDragged="#drawCanvas" width="569.0" BorderPane.alignment="CENTER" />
+   </center>
+   <top>
+      <BorderPane prefHeight="39.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <left>
+            <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="103.0" text="Blyant" BorderPane.alignment="CENTER" />
+         </left>
+         <center>
+            <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="115.0" text="Slet" BorderPane.alignment="CENTER" />
+         </center>
+         <right>
+            <ColorPicker id="colorPicker" fx:id="colorPicker" onAction="#setColor" promptText="Farve" BorderPane.alignment="CENTER" />
+         </right>
+      </BorderPane>
+   </top>
+   <left>
+      <Pane prefHeight="361.0" prefWidth="30.0" BorderPane.alignment="CENTER">
+         <children>
+            <Slider fx:id="slider" layoutX="4.0" layoutY="-8.0" max="10.0" min="1.0" onDragDetected="#setSize" onDragEntered="#setSize" prefHeight="15.0" prefWidth="99.0" value="1.0" />
+         </children>
+      </Pane>
+   </left>
+</BorderPane>
