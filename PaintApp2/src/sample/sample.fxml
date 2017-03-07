@@ -16,10 +16,10 @@
    <top>
       <BorderPane prefHeight="39.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <left>
-            <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="103.0" text="Blyant" BorderPane.alignment="CENTER" />
+            <Button fx:id="tegn" mnemonicParsing="false" onAction="#drawCanvas" prefHeight="27.0" prefWidth="103.0" text="Tegn" BorderPane.alignment="CENTER" />
          </left>
          <center>
-            <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="115.0" text="Slet" BorderPane.alignment="CENTER" />
+            <Button fx:id="slet" mnemonicParsing="false" onAction="#eraseDraw" prefHeight="27.0" prefWidth="115.0" text="Viskelæder" BorderPane.alignment="CENTER" />
          </center>
          <right>
             <ColorPicker id="colorPicker" fx:id="colorPicker" onAction="#setColor" promptText="Farve" BorderPane.alignment="CENTER" />
@@ -29,7 +29,7 @@
    <left>
       <Pane prefHeight="361.0" prefWidth="30.0" BorderPane.alignment="CENTER">
          <children>
-            <Slider fx:id="slider" layoutX="4.0" layoutY="-8.0" max="10.0" min="1.0" onDragDetected="#setSize" onDragEntered="#setSize" prefHeight="15.0" prefWidth="99.0" value="1.0" />
+            <Slider fx:id="slider" layoutX="4.0" layoutY="-8.0" max="50.0" min="1.0" onDragDetected="#setSize" onDragEntered="#setSize" prefHeight="15.0" prefWidth="99.0" value="1.0" />
          </children>
       </Pane>
    </left>
