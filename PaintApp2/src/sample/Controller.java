@@ -24,7 +24,7 @@ public class Controller {
     @FXML
     Slider slider, rslider, gslider, bslider;
     @FXML
-    Button slet, tegn, op, ned, clear;
+    Button slet, op, ned, clear;
 
     @FXML
     public void drawOnCanvas() {
@@ -116,7 +116,7 @@ public class Controller {
     private void eraseDraw() {
         slider.onDragDetectedProperty();
         gc.setLineWidth(slider.getValue());
-        colorPicker.setValue(new Color(0.95, 0.95, 0.95, 1));
+        gc.setStroke(new Color(0.95, 0.95, 0.95, 1));
     }
 
     @FXML
