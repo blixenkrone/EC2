@@ -8,9 +8,12 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 
+    public void init(){}
+
     @Override
     public void start(Stage primaryStage) throws Exception{
         try {
+
             Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
             primaryStage.setTitle("Paint app");
             primaryStage.setScene(new Scene(root));
@@ -24,4 +27,8 @@ public class Main extends Application {
     public static void main(String[] args) {
         launch(args);
     }
+
+    public void stop(){}
+
 }
+

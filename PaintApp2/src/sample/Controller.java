@@ -9,7 +9,6 @@ import javafx.scene.control.Slider;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.StrokeLineCap;
 
-
 public class Controller {
 
     GraphicsContext gc;
@@ -25,16 +24,15 @@ public class Controller {
     @FXML
     Slider slider, rslider, gslider, bslider;
     @FXML
-    Button slet, tegn, op, ned;
+    Button slet, tegn, op, ned, clear;
 
     @FXML
-    public void drawCanvas() {
+    public void drawOnCanvas() {
         gc = canvas.getGraphicsContext2D();
         System.out.println("Tegner!");
 
         try {
             canvas.setOnMousePressed(event -> {
-                setColor();
                 setSize();
                 gc.beginPath();
                 gc.setLineCap(StrokeLineCap.ROUND);
@@ -44,7 +42,6 @@ public class Controller {
             });
 
             canvas.setOnMouseDragged(event -> {
-                setColor();
                 setSize();
                 gc.lineTo(event.getSceneX(), event.getSceneY());
                 gc.stroke();
@@ -65,33 +62,22 @@ public class Controller {
 
     @FXML
     private void setSliderColor() {
+        rslider.setMin(0);
+        rslider.setMax(1);
+        rslider.setBlockIncrement(0.1);
+        double redValue = rslider.getValue();
+        gslider.setMin(0);
+        gslider.setMax(1);
+        gslider.setBlockIncrement(0.1);
+        double greenValue = gslider.getValue();
+        bslider.setMin(0);
+        bslider.setMax(1);
+        bslider.setBlockIncrement(0.1);
+        double blueValue = bslider.getValue();
 
-        try {
-            rslider.setMin(0);
-            rslider.setMax(1);
-            rslider.setBlockIncrement(0.1);
-            rslider.setShowTickLabels(true);
-            double redValue = rslider.getValue();
-            gslider.setMin(0);
-            gslider.setMax(1);
-            gslider.setBlockIncrement(0.1);
-            gslider.setShowTickLabels(true);
-            double greenValue = rslider.getValue();
-            bslider.setMin(0);
-            bslider.setMax(1);
-            bslider.setBlockIncrement(0.1);
-            bslider.setShowTickLabels(true);
-            double blueValue = bslider.getValue();
-
-//            totalSlideColor = new Color(redValue, greenValue, blueValue, 1);
-            totalSlideColor = Color.BROWN;
-            System.out.println(redValue + greenValue + blueValue);
-
-            gc.setStroke(totalSlideColor);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        totalSlideColor = new Color(redValue, greenValue, blueValue, 1);
+        System.out.println(redValue + greenValue + blueValue);
+        gc.setStroke(totalSlideColor);
     }
 
 
@@ -99,7 +85,6 @@ public class Controller {
     private void setSize() {
         slider.setShowTickLabels(true);
         slider.setShowTickMarks(true);
-
         buttonSizeValue = sliderValue;
         slider.setMin(1);
         slider.setMax(100);
@@ -129,9 +114,13 @@ public class Controller {
 
     @FXML
     private void eraseDraw() {
-        System.out.println("Sletter!");
         slider.onDragDetectedProperty();
         gc.setLineWidth(slider.getValue());
         colorPicker.setValue(new Color(0.95, 0.95, 0.95, 1));
+    }
+
+    @FXML
+    private void clearCanvas() {
+        gc.clearRect(0, 0, 700, 700);
     }
 }
