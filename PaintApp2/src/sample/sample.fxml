@@ -12,7 +12,7 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <center>
-      <Canvas id="canvas" fx:id="canvas" height="700.0" onMouseClicked="#drawOnCanvas" onMouseDragged="#drawOnCanvas" width="700.0" BorderPane.alignment="CENTER" />
+      <Canvas id="canvas" fx:id="canvas"  width="700.0" height="700.0" onMouseClicked="#drawOnCanvas" onMouseDragged="#drawOnCanvas" BorderPane.alignment="CENTER" />
    </center>
    <top>
       <BorderPane prefHeight="39.0" prefWidth="600.0" BorderPane.alignment="CENTER">
