@@ -1,44 +1,39 @@
 package Logic;
 
-import Logic.GameMethod;
-import Logic.SceneInfo;
-import javafx.fxml.FXML;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.KeyCode;
-import javafx.scene.paint.*;
 
 import java.awt.*;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Random;
 
-/**
- * Created by skb on 24-03-2017.
- */
 public class Ramble implements GameMethod {
 
     public ArrayList<Float> randomColor = new ArrayList<Float>();
     private Random random = new Random(0-1);
     public float r,g,b = random.nextFloat();
-    public Color rambleColor;
-    public Color color;
+    private Color color;
 
     private int x;
     private int y;
+    private double score = 0;
 
-    public Ramble(Point position, Color color){
+    public Ramble(Point position){
         this.setX(position.x);
-        this.setX(position.y);
+        this.setY(position.y);
+        generateRambleColor();
         this.color = color;
     }
 
 
-//    public void generateRambleColor(){
-//        randomColor.add(r);
-//        randomColor.add(g);
-//        randomColor.add(b);
-//        setRambleColor(new Color(r,g,b,1));
-//    }
+    public void generateRambleColor(){
+        randomColor.add(r);
+        randomColor.add(g);
+        randomColor.add(b);
+        setColor(new Color(r,g,b,1));
+    }
+
 
     @Override
     public void update(KeyCode keyPressed) {
@@ -47,33 +42,31 @@ public class Ramble implements GameMethod {
 
     @Override
     public void draw(GraphicsContext graphicsContext, SceneInfo sceneInfo) {
-            getRambleColor();
-            //graphicsContext.setFill(getRambleColor());
-            graphicsContext.fillRoundRect(getX() * sceneInfo.getFieldWidth(), getY() * sceneInfo.getFieldHeight(), sceneInfo.getFieldWidth(), sceneInfo.getFieldHeight(), 5, 5);
+        graphicsContext.setFill(javafx.scene.paint.Color.AQUA);
+        graphicsContext.fillRoundRect(x * sceneInfo.getFieldWidth(), y * sceneInfo.getFieldHeight(), sceneInfo.getFieldWidth(), sceneInfo.getFieldHeight(), 1, 1);
     }
 
 
-    public Color getRambleColor() {
-        return rambleColor;
+    public Color getColor() {
+        return color;
     }
 
-    public void setRambleColor(Color rambleColor) {
-        this.rambleColor = rambleColor;
+    public void setColor(Color color) {
+        this.color = color;
     }
 
     public int getX() {
         return x;
     }
-
     public void setX(int x) {
         this.x = x;
     }
-
     public int getY() {
         return y;
     }
-
     public void setY(int y) {
         this.y = y;
     }
+
+
 }

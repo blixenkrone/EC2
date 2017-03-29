@@ -11,6 +11,9 @@ import javafx.scene.paint.Color;
 
 import java.util.ArrayList;
 
+import static javafx.scene.paint.Color.GOLD;
+import static javafx.scene.paint.Color.PINK;
+
 public class Controller {
 
     @FXML
@@ -44,14 +47,18 @@ public class Controller {
 
         player = new Player(sceneInfo.playerSpawnPoint(), sceneInfo);
 
-        ramble = new Ramble(sceneInfo.getRandomPoint(), Color.CYAN);
-
+        ramble = new Ramble(sceneInfo.getRandomPoint());
         gameMethods.add(player);
+
+        gameMethods.add(ramble);
+
+        //System.out.println(ramble.getColor());
 
         for (int i = 0; i < 2000; i++) {
             maze = new Maze(Color.BLACK, sceneInfo.getRandomPoint());
             gameMethods.add(maze);
             sceneInfo.mazes.add(maze);
+
         }
 
         // Start and control game loop
